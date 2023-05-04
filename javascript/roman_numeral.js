@@ -9,7 +9,7 @@ function romanNumeral(string) {
     "D": 500,
     "M": 1000
   }
-  // turn each letter into a number
+  // turn each letter into a number and add to array
   const array = []
 
    for (let i = 0; i < string.length; i++) {
@@ -25,29 +25,24 @@ function romanNumeral(string) {
     }
     // decide what to push into array
     if (currentLetter > nextLetter) {
-      // console.log("current =>", currentLetter)
       array.push(currentLetter)
     } else if (currentLetter < nextLetter) {
-      // console.log("current =>", nextLetter)
       array.push(nextLetter - currentLetter)
       i++
     } else {
-      // console.log("current =>", currentLetter)
       array.push(currentLetter)
     }
    }
-    // add sum of all numbers 
+    // add sum of all numbers from array into 1 number
     let total = 0
     for (num of array) {
      total += num
     }
     console.log("total =>", total)
     console.log("array =>", array)
-    // return total sum
+    // return the total sum as 1 number
     return total
   }
-
-romanNumeral("I")
 
 if (require.main === module) {
   // add your own tests in here
