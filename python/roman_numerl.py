@@ -25,9 +25,11 @@ def roman_numeral_converter(string):
            array.append(curent_letter)
        elif curent_letter == next_letter:
            array.append(curent_letter)
+       elif curent_letter < next_letter:
+           array.append(next_letter - curent_letter)
+           i+1    
    
-   
-           
+       print("array=>", array)    
        total = 0
        for number in array:
            total += number
@@ -37,4 +39,4 @@ def roman_numeral_converter(string):
 
 
 if __name__ == '__main__':
-    print(roman_numeral_converter("VI"))
+    print(roman_numeral_converter("IV"))
