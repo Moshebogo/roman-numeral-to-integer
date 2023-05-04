@@ -12,20 +12,30 @@ function romanNumeral(string) {
   const array = []
 
    for (let i = 0; i < string.length; i++) {
+    // define the current letter
     const currentLetter = dictionary[string[i]]
-    const nextLetter = dictionary[string[i+1]] 
+    // definbe the next letter
+    let nextLetter;
+    if (dictionary[string[i+1]]  != null) {
+      nextLetter = dictionary[string[i+1]]
+    } else {
+      nextLetter = 0
+    }
 
-    if (dictionary[currentLetter] > dictionary[nextLetter]) {
-      console.log("curr =>", dictionary[currentLetter])
-      array.push(dictionary[currentLetter])
-    } else if (dictionary[currentLetter] < dictionary[nextLetter]) {
+    // console.log("curr =>", currentLetter, "next =>", nextLetter)
+
+
+
+    if (currentLetter < nextLetter) {
       console.log("next =>", dictionary[nextLetter])
-      array.push(dictionary[nextLetter] - dictionary[currentLetter])
+      array.push(nextLetter - currentLetter)
+    } else {
+      array.push(currentLetter)
     }
    }
 
    console.log('array =>', array)
-   
+
     // add sum of all numbers 
     let total = 0
     for (num of array) {
@@ -35,7 +45,7 @@ function romanNumeral(string) {
     // return total
   }
 
-romanNumeral("VVI")
+romanNumeral("IV")
 
 // if (require.main === module) {
 //   // add your own tests in here
